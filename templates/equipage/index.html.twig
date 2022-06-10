@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Equipage Jason{% endblock %}
+
+{% block body %}
+<!-- Main section -->
+<main>
+  
+  <!-- New member form -->
+  <h2>Ajouter un(e) Argonaute</h2>
+  <div class="new-member-form">
+{# ********************Formulaire**********************#}
+  {{ form_start(formEquipage)}}
+  <div class="flex">
+    {{ form_row(formEquipage.prenom, {
+        label : "Nom de l'Argonaute",
+        attr : {
+        placeholder : "Charalampos"
+        }
+    })}}
+     <button type="submit" class="taille">Envoyer</button>
+     </div>
+  {{ form_end(formEquipage)}}
+  </div>
+{# ********************fin du Formulaire**********************#}
+  <!-- Member list -->
+  <h2>Membres de l'équipage</h2>
+    <div class="parent">
+      {% for equipage in equipages %}
+          <div class="colonne">{{(equipage.prenom)}}</div>
+      {% endfor %}
+      </div>
+    
+ 
+  
+</main>
+
+{% endblock %}
